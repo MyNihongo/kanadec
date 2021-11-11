@@ -34,7 +34,7 @@ var kanji []rune = createKanji()
 
 func createKanji() []rune {
 	list := make([]rune,
-		res.Kanji_End-res.KanjiRare_Start+1+
+		res.Kanji_End-res.Kanji_Start+1+
 			res.KanjiRare_End-res.KanjiRare_Start+1+
 			1, // IterationMark
 	)
