@@ -22,7 +22,7 @@ func IsRuneKana(value rune) bool {
 // IsRuneKanji checks whether the provided rune is a valid kanji character
 func IsRuneKanji(value rune) bool {
 	return value >= res.Kanji_Start && value <= res.Kanji_End ||
-		value >= res.KanjiRare_Start && value >= res.KanjiRare_End ||
+		value >= res.KanjiRare_Start && value <= res.KanjiRare_End ||
 		value == res.Kanji_IterationMark
 }
 
