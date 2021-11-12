@@ -13,7 +13,7 @@ func generateHiragana() string {
 }
 
 func generateKatakana() string {
-	return randomWord(res.Katakana_Start, res.KanjiRare_End)
+	return randomWord(res.Katakana_Start, res.Katakana_End)
 }
 
 func generateKanji() string {

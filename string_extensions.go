@@ -61,6 +61,10 @@ func HasRomaji(value string) bool {
 }
 
 func isCheck(value string, check func(rune) bool) bool {
+	if len(value) == 0 {
+		return false
+	}
+
 	for _, r := range value {
 		if !check(r) {
 			return false
