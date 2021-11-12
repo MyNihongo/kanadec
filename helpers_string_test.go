@@ -17,21 +17,27 @@ func generateKatakana() string {
 }
 
 func generateKanji() string {
-	return randomWord(res.Kanji_Start, res.Kanji_End)
+	return randomWord(res.Kanji_Start, res.Kanji_End, res.KanjiRare_Start, res.KanjiRare_End)
 }
 
 func generateRomaji() string {
 	return randomWord(res.English_Start, res.English_End)
 }
 
-func randomWord(from rune, to rune) string {
+func randomWord(pairs ...rune) string {
+	if len(pairs) == 0 || len(pairs)%2 != 0 {
+		panic("provide an even number of indices")
+	}
+
 	rand.Seed(time.Now().UnixNano())
+	pairLen := len(pairs) / 2
 
 	var sb strings.Builder
 	strLen := getRandomInt(5, 10)
 
 	for i := 0; i < strLen; i++ {
-		runeVal := getRandomRune(int(from), int(to))
+		pairIndex := i % pairLen * 2
+		runeVal := getRandomRune(int(pairs[pairIndex]), int(pairs[pairIndex+1]))
 		sb.WriteRune(runeVal)
 	}
 
